@@ -6,6 +6,7 @@
 import tkinter as tk
 from tkinter import messagebox as mb
 import math_functions as math
+import sys
 
 # ----- Global Variables ----- #
 ans1 = 1
@@ -15,8 +16,19 @@ b_value = 2
 c_value = 3
 d_value = 4
 num = 1
-
+device = ""
 # ----- Functions ----- #
+def get_demension_type():
+    """
+    Makes the window geometry change based on the device type either mac or windows
+    """
+    global device
+    if sys.platform == "darwin": # mac
+        device="mac"
+    else: # windows
+        device="windows"
+
+
 def raise_main():
     """
     Raises the 'frame_main' frame to the top of the stacking order.\n
@@ -24,11 +36,11 @@ def raise_main():
     """
     global ans1, ans2, a_value, b_value, c_value, d_value, num
     frame_main.tkraise()
-    # use this geometry if using macOS
-    root.wm_geometry("250x325")
-    # use this geometry if using windows
-    # root.wm_geometry("300x325")
-    
+    get_demension_type()
+    if device=="mac":
+        root.wm_geometry("250x325")
+    else:
+        root.wm_geometry("300x325")
     # Clear the text entry fields for the quadratic equation
     ent_a_factor.delete(0, tk.END)
     ent_b_factor.delete(0, tk.END)
@@ -57,10 +69,10 @@ def raise_factor():
     Raises the 'frame_factor' frame to the top of the stacking order, making it visible in the GUI.
     """
     frame_factor.tkraise()
-    # use this geometry if using macOS
-    root.wm_geometry("250x385")
-    # use this geometry if using windows
-    # root.wm_geometry("300x385")
+    if device=="mac":
+        root.wm_geometry("250x385")
+    else:
+        root.wm_geometry("300x385")
     update_ans_factor("")
 
 def raise_foil():
@@ -68,10 +80,10 @@ def raise_foil():
     Raises the 'frame_foil' frame to the top of the stacking order, making it visible in the GUI.
     """
     frame_foil.tkraise()
-    # use this geometry if using macOS
-    root.wm_geometry("250x460")
-    # use this geometry if using windows
-    # root.wm_geometry("300x460")
+    if device=="mac":
+        root.wm_geometry("250x460")
+    else:
+        root.wm_geometry("300x460")
     update_ans_foil("")
 
 def raise_gf():
@@ -79,10 +91,10 @@ def raise_gf():
     Raises the 'frame_gf' frame to the top of the stacking order, making it visible in the GUI.
     """
     frame_gf.tkraise()
-    # use this geometry if using macOS
-    root.wm_geometry("250x300")
-    # use this geometry if using windows
-    # root.wm_geometry("300x300")
+    if device=="mac":
+        root.wm_geometry("250x300")
+    else:
+        root.wm_geometry("300x300")
     update_ans_gf("")
 
 def update_ans_factor(text):
@@ -153,7 +165,6 @@ def update_ans_gf(text):
     root.wm_geometry("250x" + str(250 + lines * 11))
     # use this geometry if using windows
     # root.wm_geometry("300x" + str(250 + lines * 11))
-    
     
 
 def get_factor_answer():
