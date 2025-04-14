@@ -25,7 +25,7 @@ def get_demension_type():
     global device
     if sys.platform == "darwin": # mac
         device="mac"
-    else: # windows
+    elif device=="windows":
         device="windows"
 
 
@@ -39,7 +39,7 @@ def raise_main():
     get_demension_type()
     if device=="mac":
         root.wm_geometry("250x325")
-    else:
+    elif device=="windows":
         root.wm_geometry("300x325")
     # Clear the text entry fields for the quadratic equation
     ent_a_factor.delete(0, tk.END)
@@ -71,7 +71,7 @@ def raise_factor():
     frame_factor.tkraise()
     if device=="mac":
         root.wm_geometry("250x385")
-    else:
+    elif device=="windows":
         root.wm_geometry("300x385")
     update_ans_factor("")
 
@@ -82,7 +82,7 @@ def raise_foil():
     frame_foil.tkraise()
     if device=="mac":
         root.wm_geometry("250x460")
-    else:
+    elif device=="windows":
         root.wm_geometry("300x460")
     update_ans_foil("")
 
@@ -93,7 +93,7 @@ def raise_gf():
     frame_gf.tkraise()
     if device=="mac":
         root.wm_geometry("250x300")
-    else:
+    elif device=="windows":
         root.wm_geometry("300x300")
     update_ans_gf("")
 
@@ -163,7 +163,7 @@ def update_ans_gf(text):
     # around the text widget.
     if device=="mac":
         root.wm_geometry("250x" + str(250 + lines * 11))
-    else:
+    elif device=="windows":
         root.wm_geometry("300x" + str(300 + lines * 11))
     
 
@@ -311,7 +311,7 @@ root = tk.Tk()
 root.title("Factorer Program")
 if device=="mac":
     root.wm_geometry("250x325")
-else:
+elif device=="windows":
     root.wm_geometry("300x325")
 
 
