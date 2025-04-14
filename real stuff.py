@@ -17,30 +17,30 @@ c_value = 3
 d_value = 4
 num = 1
 device = ""
+
 # ----- Functions ----- #
-def get_demension_type():
+def set_demension_type():
     """
     Makes the window geometry change based on the device type either mac or windows
     """
     global device
     if sys.platform == "darwin": # mac
         device="mac"
-    elif device=="windows":
+    else: # windows
         device="windows"
-
 
 def raise_main():
     """
     Raises the 'frame_main' frame to the top of the stacking order.\n
     Also, all the text entry fields will be cleared, and the global variables related to the quadratic equation will be reset to their default values.
     """
-    global ans1, ans2, a_value, b_value, c_value, d_value, num
+    global ans1, ans2, a_value, b_value, c_value, d_value, num, device
     frame_main.tkraise()
-    get_demension_type()
     if device=="mac":
         root.wm_geometry("250x325")
-    elif device=="windows":
+    else:
         root.wm_geometry("300x325")
+    
     # Clear the text entry fields for the quadratic equation
     ent_a_factor.delete(0, tk.END)
     ent_b_factor.delete(0, tk.END)
@@ -68,10 +68,11 @@ def raise_factor():
     """
     Raises the 'frame_factor' frame to the top of the stacking order, making it visible in the GUI.
     """
+    global device
     frame_factor.tkraise()
     if device=="mac":
         root.wm_geometry("250x385")
-    elif device=="windows":
+    else:
         root.wm_geometry("300x385")
     update_ans_factor("")
 
@@ -79,10 +80,11 @@ def raise_foil():
     """
     Raises the 'frame_foil' frame to the top of the stacking order, making it visible in the GUI.
     """
+    global device
     frame_foil.tkraise()
     if device=="mac":
         root.wm_geometry("250x460")
-    elif device=="windows":
+    else:
         root.wm_geometry("300x460")
     update_ans_foil("")
 
@@ -90,10 +92,11 @@ def raise_gf():
     """
     Raises the 'frame_gf' frame to the top of the stacking order, making it visible in the GUI.
     """
+    global device
     frame_gf.tkraise()
     if device=="mac":
         root.wm_geometry("250x300")
-    elif device=="windows":
+    else:
         root.wm_geometry("300x300")
     update_ans_gf("")
 
@@ -127,6 +130,7 @@ def update_ans_gf(text):
     Updates the answer in the 'answer_gf' Text widget with the given text and formats it to be centered.
     Resizes the text widget height based on the number of lines in the text.
     """
+    global device
     # Enable the text widget to allow editing
     answer_gf.config(state="normal")
     
@@ -163,7 +167,7 @@ def update_ans_gf(text):
     # around the text widget.
     if device=="mac":
         root.wm_geometry("250x" + str(250 + lines * 11))
-    elif device=="windows":
+    else:
         root.wm_geometry("300x" + str(300 + lines * 11))
     
 
@@ -309,11 +313,11 @@ def get_gf_answer():
 # ----- Main Window Setup ----- #
 root = tk.Tk() 
 root.title("Factorer Program")
+set_demension_type()
 if device=="mac":
     root.wm_geometry("250x325")
 elif device=="windows":
     root.wm_geometry("300x325")
-
 
 # ----- Frames Setup ----- #
 frame_main = tk.Frame(root)
