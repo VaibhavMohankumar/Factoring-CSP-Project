@@ -309,10 +309,11 @@ def get_gf_answer():
 # ----- Main Window Setup ----- #
 root = tk.Tk() 
 root.title("Factorer Program")
-# use this geometry if using macOS
-root.wm_geometry("250x325")
-# use this geometry if using windows
-# root.wm_geometry("300x325")
+if device=="mac":
+    root.wm_geometry("250x325")
+else:
+    root.wm_geometry("300x325")
+
 
 # ----- Frames Setup ----- #
 frame_main = tk.Frame(root)
