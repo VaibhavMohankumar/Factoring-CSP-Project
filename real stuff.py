@@ -162,7 +162,10 @@ def update_ans_gf(text):
     # increased by 11 pixels for each line of text to account for the border
     # around the text widget.
     # use this geometry if using macOS
-    root.wm_geometry("250x" + str(250 + lines * 11))
+    if device=="mac":
+        root.wm_geometry("250x" + str(250 + lines * 11))
+    else:
+        root.wm_geometry("300x" + str(300 + lines * 11))
     # use this geometry if using windows
     # root.wm_geometry("300x" + str(250 + lines * 11))
     
