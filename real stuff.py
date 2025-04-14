@@ -24,7 +24,10 @@ def raise_main():
     """
     global ans1, ans2, a_value, b_value, c_value, d_value, num
     frame_main.tkraise()
+    # use this geometry if using macOS
     root.wm_geometry("250x325")
+    # use this geometry if using windows
+    # root.wm_geometry("300x325")
     
     # Clear the text entry fields for the quadratic equation
     ent_a_factor.delete(0, tk.END)
@@ -54,7 +57,10 @@ def raise_factor():
     Raises the 'frame_factor' frame to the top of the stacking order, making it visible in the GUI.
     """
     frame_factor.tkraise()
+    # use this geometry if using macOS
     root.wm_geometry("250x385")
+    # use this geometry if using windows
+    # root.wm_geometry("300x385")
     update_ans_factor("")
 
 def raise_foil():
@@ -62,7 +68,10 @@ def raise_foil():
     Raises the 'frame_foil' frame to the top of the stacking order, making it visible in the GUI.
     """
     frame_foil.tkraise()
+    # use this geometry if using macOS
     root.wm_geometry("250x460")
+    # use this geometry if using windows
+    # root.wm_geometry("300x460")
     update_ans_foil("")
 
 def raise_gf():
@@ -70,7 +79,10 @@ def raise_gf():
     Raises the 'frame_gf' frame to the top of the stacking order, making it visible in the GUI.
     """
     frame_gf.tkraise()
+    # use this geometry if using macOS
     root.wm_geometry("250x300")
+    # use this geometry if using windows
+    # root.wm_geometry("300x300")
     update_ans_gf("")
 
 def update_ans_factor(text):
@@ -137,7 +149,10 @@ def update_ans_gf(text):
     # Note: The width of the window is kept constant at 250, and the height is
     # increased by 11 pixels for each line of text to account for the border
     # around the text widget.
+    # use this geometry if using macOS
     root.wm_geometry("250x" + str(250 + lines * 11))
+    # use this geometry if using windows
+    # root.wm_geometry("300x" + str(250 + lines * 11))
     
     
 
@@ -283,7 +298,10 @@ def get_gf_answer():
 # ----- Main Window Setup ----- #
 root = tk.Tk() 
 root.title("Factorer Program")
+# use this geometry if using macOS
 root.wm_geometry("250x325")
+# use this geometry if using windows
+# root.wm_geometry("300x325")
 
 # ----- Frames Setup ----- #
 frame_main = tk.Frame(root)
