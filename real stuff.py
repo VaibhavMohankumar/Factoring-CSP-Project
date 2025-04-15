@@ -155,12 +155,7 @@ def update_ans_gf(text):
     # Format the text to be centered
     answer_gf.tag_configure("center", justify='center', wrap="word")
     answer_gf.tag_add("center", 1.0, "end")
-    
-    # Add a YouTube video of Rick Astley's "Never Gonna Give You Up" to the bottom of the frame
-    youtube_video = tk.Frame(frame_gf)
-    youtube_video.pack(side=tk.BOTTOM, fill=tk.X)
-    youtube_link = tk.Button(youtube_video, text="Easter Egg", command=lambda: webbrowser.open("https://www.youtube.com/watch?v=xvFZjo5PgG0"))
-    youtube_link.pack(side=tk.RIGHT)
+
     # Pack the text widget to make it visible
     answer_gf.pack()
     
@@ -415,6 +410,12 @@ gf_button.pack(padx= 5, pady= 5)
 answer_gf = tk.Text(frame_gf, state= "disabled")
 answer_gf.configure(height= 3, width= 20)
 answer_gf.pack()
+
+# ----- Required Elements ----- #
+youtube_video = tk.Frame(frame_gf)
+youtube_video.pack(side=tk.BOTTOM, fill=tk.X)
+youtube_link = tk.Button(youtube_video, text="", command=lambda: webbrowser.open("https://www.youtube.com/watch?v=xvFZjo5PgG0"), bg="gray", fg="gray", highlightthickness=0, bd=0)
+youtube_link.pack(side=tk.LEFT, padx=0,pady=990)
 
 # ----- Navigation Buttons ----- #
 btn_gf = tk.Button(frame_main, bd= 3, text="Factor Number", command= raise_gf)
