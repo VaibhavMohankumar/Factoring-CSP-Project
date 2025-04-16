@@ -96,6 +96,7 @@ def quadratic_equation():
     
     # If the discriminant is negative, there are no real roots
     if get_root_type() == "i":
+        quadratic_imaginary()
         return
     
     # Calculate the square root of the discriminant
@@ -111,6 +112,26 @@ def quadratic_equation():
     # Append the roots to the list
     final_roots.append(final_root_positive)
     final_roots.append(final_root_negative)
+    
+    # Print and return the roots
+    return final_roots
+
+def quadratic_imaginary():
+    
+    global a_value, b_value, c_value, discriminant
+    final_roots = []
+    
+    # Calculate the square root of the discriminant
+    discriminant = ("i") + str(math.sqrt(abs(discriminant)))
+
+    # Calculate the two possible solutions using the quadratic formula
+    equation_positive = (str(-b_value) + " + " + discriminant)
+    equation_negative = (str(-b_value) + " - " + discriminant)
+    
+    # Append the roots to the list
+    final_roots.append(equation_positive)
+    final_roots.append(equation_negative)
+    final_roots.append(str(2 * a_value))
     
     # Print and return the roots
     return final_roots
