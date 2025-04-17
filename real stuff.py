@@ -195,9 +195,9 @@ def get_factor_answer():
         mb.showerror("Value Error", "All values must be integers")
         return
     # Calculate the roots
-    answer_factor = math.quadratic_equation()
     # Store the roots in the variables ans1 and ans2
     if (math.get_root_type() == "r"):
+        answer_factor = math.quadratic_equation()
         # If the roots are real, format them and update the answer text
         ans1 = answer_factor[0]
         ans2 = answer_factor[1]
@@ -224,18 +224,19 @@ def get_factor_answer():
         # Update the answer text with the formatted quadratic equation
         update_ans_factor(str(ans1) + str(ans2))
     else:
+        answer_factor = math.quadratic_imaginary()
         # If the roots are imaginary'
-        equation_positive = answer_factor[0]
-        equation_negative = answer_factor[1]
-        bottom_value = answer_factor[2]
+        equation = answer_factor[0]
+        bottom_value = answer_factor[1]
 
-        equation= f"{equation_positive}\u2044"
+        equation = f"{equation}\u2044{bottom_value}"
+        update_ans_factor(equation)
 
-        https://superuser.com/questions/1816633/what-is-the-correct-way-to-write-fractions-in-unicode
+        #https://superuser.com/questions/1816633/what-is-the-correct-way-to-write-fractions-in-unicode
 
-        equation = f"{a_value}x\u00b2 "
-        equation += f"{'+ ' if b_value >= 0 else '- '}{abs(b_value)}x "
-        equation += f"{'+ ' if c_value >= 0 else '- '}{abs(c_value)}"
+        #equation = f"{a_value}x\u00b2 "
+        #equation += f"{'+ ' if b_value >= 0 else '- '}{abs(b_value)}x "
+        #equation += f"{'+ ' if c_value >= 0 else '- '}{abs(c_value)}"
 
 
 def get_foil_answer():

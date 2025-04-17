@@ -122,15 +122,17 @@ def quadratic_imaginary():
     final_roots = []
     
     # Calculate the square root of the discriminant
-    discriminant = ("i") + str(math.sqrt(abs(discriminant)))
-
+    discriminant = "i√" + str(abs(discriminant))
     # Calculate the two possible solutions using the quadratic formula
-    equation_positive = (str(-b_value) + " + " + discriminant)
-    equation_negative = (str(-b_value) + " - " + discriminant)
+    def check_b(b, pos):
+        if b == 0:
+            return ""
+        else:
+           return str(-b)
+    equation_positive = ("(" + check_b(b_value, True) + "±" + discriminant + ")")
     
     # Append the roots to the list
     final_roots.append(equation_positive)
-    final_roots.append(equation_negative)
     final_roots.append(str(2 * a_value))
     
     # Print and return the roots
